@@ -1,19 +1,17 @@
-/* Reset */
+/* Reset / base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html, body {
   height: 100%;
-  font-family: 'Montserrat', sans-serif;
+  width: 100%;
   background: #111;
+  font-family: 'Montserrat', sans-serif;
   overflow: hidden;
   color: #eee;
 }
-
-/* Container for centering content */
 .container {
   position: absolute;
   top: 50%;
@@ -22,51 +20,42 @@ html, body {
   text-align: center;
   z-index: 10;
 }
-
-/* Title */
 .title {
   font-size: 5rem;
   font-weight: 600;
   text-shadow: 0 0 15px rgba(255,255,255,0.1);
   animation: fadeIn 1.5s ease forwards;
 }
-
-/* Description */
 .description {
   margin-top: 1rem;
   font-size: 1.5rem;
   animation: fadeIn 2s ease forwards;
 }
-
-/* Button */
+/* Dark‑gray button */
 .join-btn {
   margin-top: 2rem;
   padding: 1rem 3rem;
   font-size: 1.5rem;
   font-weight: 600;
   border: none;
-  border-radius: 15px;
+  border-radius: 10px;
   cursor: pointer;
-  background: linear-gradient(90deg, #ff4d4d, #ff6a00);
+  background: #333;
   color: #fff;
-  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
-  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  transition: all 0.2s ease;
 }
-
 .join-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 30px rgba(255, 0, 0, 0.6);
-  background: linear-gradient(45deg, #ff4d4d, #ff6a00, #ff4d4d);
+  /* only subtle hover effect, no big scaling */
+  background: #444;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
 }
-
-/* Fade-in animation */
 @keyframes fadeIn {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
-
-/* Canvas background will cover everything */
-#bgCanvas {
+/* tsParticles container covers full screen behind content */
+#tsparticles {
   position: fixed;
   top: 0;
   left: 0;

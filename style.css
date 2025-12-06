@@ -31,7 +31,6 @@ html, body {
   font-size: 1.5rem;
   animation: fadeIn 2s ease forwards;
 }
-/* Dark‑gray button */
 .join-btn {
   margin-top: 2rem;
   padding: 1rem 3rem;
@@ -40,13 +39,12 @@ html, body {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  background: #333;
+  background: #333; /* dark gray */
   color: #fff;
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
   transition: all 0.2s ease;
 }
 .join-btn:hover {
-  /* only subtle hover effect, no big scaling */
   background: #444;
   box-shadow: 0 6px 20px rgba(0,0,0,0.6);
 }
@@ -54,7 +52,6 @@ html, body {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
-/* tsParticles container covers full screen behind content */
 #tsparticles {
   position: fixed;
   top: 0;

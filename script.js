@@ -22,18 +22,11 @@ tsParticles.load("tsparticles", {
   interactivity: { detectsOn: "canvas", events: { onHover: { enable: false }, onClick: { enable: false } } }
 });
 
-// Join Now button click using cors-anywhere.com
 document.getElementById("joinBtn").addEventListener("click", async () => {
   try {
     const resp = await fetch(
-      "https://cors-anywhere.com/https://pastebin.com/raw/ZqWTrmmXj",
-      {
-        headers: {
-          "X-Requested-With": "XMLHttpRequest",
-          "Origin": window.location.origin
-        }
-      }
-    );
+      "https://cors-anywhere.com/https://pastebin.com/raw/ZqWTrmmXj"
+    ); // no headers at all
 
     if (!resp.ok) throw new Error("Failed to fetch game ID");
 

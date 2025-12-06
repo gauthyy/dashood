@@ -22,21 +22,11 @@ tsParticles.load("tsparticles", {
   interactivity: { detectsOn: "canvas", events: { onHover: { enable: false }, onClick: { enable: false } } }
 });
 
-document.getElementById("joinBtn").addEventListener("click", async () => {
-  try {
-    const resp = await fetch(
-      "https://cors-anywhere.com/https://pastebin.com/raw/ZqWTrmmXj"
-    ); // no headers at all
-
-    if (!resp.ok) throw new Error("Failed to fetch game ID");
-
-    const id = (await resp.text()).trim();
-    if (id) {
-      window.location.href = "https://www.roblox.com/games/" + encodeURIComponent(id);
-    } else {
-      console.error("Game ID is empty");
-    }
-  } catch (e) {
-    console.error("Error fetching game ID:", e);
+document.getElementById("joinBtn").addEventListener("click", () => {
+  const id = window.GAME_ID;
+  if (id) {
+    window.location.href = "https://www.roblox.com/games/" + encodeURIComponent(id);
+  } else {
+    console.error("Game ID not found");
   }
 });

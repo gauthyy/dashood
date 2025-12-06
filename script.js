@@ -30,3 +30,7 @@ document.getElementById("joinBtn").addEventListener("click", () => {
     console.error("Game ID not found");
   }
 });
+
+document.getElementById("discord-btn").addEventListener("click", () => {
+    window.open("https://discord.gg/dashood", "_blank");
+});

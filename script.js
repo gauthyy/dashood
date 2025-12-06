@@ -1,48 +1,48 @@
-const canvas = document.getElementById('bgCanvas');
-const ctx = canvas.getContext('2d');
+// initialize tsParticles
+tsParticles.load("tsparticles", {
+  fullScreen: { enable: false },
+  background: { color: "#111" },
+  fpsLimit: 60,
+  particles: {
+    number: { value: 80, density: { enable: true, area: 800 } },
+    color: { value: "#888" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5, random: { enable: true, minimumValue: 0.2 } },
+    size: { value: 3, random: { enable: true, minimumValue: 1 } },
+    move: {
+      enable: true,
+      speed: 0.6,
+      direction: "none",
+      random: true,
+      straight: false,
+      outModes: { default: "bounce" }
+    },
+    links: {
+      enable: false
+    }
+  },
+  retina_detect: true,
+  interactivity: {
+    detectsOn: "canvas",
+    events: {
+      onHover: { enable: false },
+      onClick: { enable: false }
+    }
+  }
+});
 
-let w, h;
-function resize() {
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resize);
-resize();
-
-const circles = [];
-for (let i = 0; i < 50; i++) {
-  circles.push({
-    x: Math.random() * w,
-    y: Math.random() * h,
-    r: Math.random() * 20 + 5,
-    dx: (Math.random() - 0.5) * 0.5,
-    dy: (Math.random() - 0.5) * 0.5,
-    color: `rgba(255,255,255,${Math.random()*0.1})`
-  });
-}
-
-function draw() {
-  const grad = ctx.createLinearGradient(0,0,w,h);
-  grad.addColorStop(0, '#111');
-  grad.addColorStop(0.5, '#222');
-  grad.addColorStop(1, '#111');
-  ctx.fillStyle = grad;
-  ctx.fillRect(0,0,w,h);
-
-  circles.forEach(c => {
-    ctx.beginPath();
-    ctx.arc(c.x, c.y, c.r, 0, Math.PI*2);
-    ctx.fillStyle = c.color;
-    ctx.fill();
-    c.x += c.dx;
-    c.y += c.dy;
-
-    // Bounce off edges
-    if(c.x < 0 || c.x > w) c.dx *= -1;
-    if(c.y < 0 || c.y > h) c.dy *= -1;
-  });
-
-  requestAnimationFrame(draw);
-}
-
-draw();
+// handle join button click
+document.getElementById("joinBtn").addEventListener("click", async () => {
+  try {
+    const resp = await fetch("https://pastebin.com/raw/ZqWTrmmX");
+    if (!resp.ok) throw new Error("Failed to fetch game id");
+    const id = (await resp.text()).trim();
+    if (id) {
+      window.location.href = "https://www.roblox.com/games/" + encodeURIComponent(id);
+    } else {
+      console.error("Game ID is empty");
+    }
+  } catch (e) {
+    console.error("Error fetching game ID:", e);
+  }
+});

@@ -60,3 +60,23 @@ html, body {
   height: 100%;
   z-index: 1;
 }
+
+#discord-btn {
+    position: fixed;
+    top: 20px; /* distance from top */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;   /* icon size */
+    height: 50px;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo_white.svg') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+    filter: drop-shadow(0 0 10px white); /* glowing effect */
+    transition: transform 0.2s ease, filter 0.2s ease;
+    z-index: 9999;
+}
+
+#discord-btn:hover {
+    transform: translateX(-50%) scale(1.1); /* subtle grow on hover */
+    filter: drop-shadow(0 0 20px white);  /* stronger glow on hover */
+}

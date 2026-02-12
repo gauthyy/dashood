@@ -31,6 +31,29 @@ document.getElementById("joinBtn").addEventListener("click", () => {
   }
 });
 
-document.getElementById("discord-btn").addEventListener("click", () => {
-    window.open("https://discord.gg/dashood", "_blank");
+document.getElementById("discordBtn")?.addEventListener("click", () => {
+  window.open("https://discord.gg/dashood", "_blank");
+});
+
+const themeBtn = document.getElementById("themeToggle");
+themeBtn?.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+  document.body.classList.toggle("dark");
+
+  themeBtn.textContent =
+    document.body.classList.contains("dark") ? "🌙 Night" : "☀️ Day";
+});
+
+const modal = document.getElementById("ticketModal");
+
+document.getElementById("ticketBtn")?.addEventListener("click", () => {
+  modal.style.display = "flex";
+});
+
+document.getElementById("closeModal")?.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+modal?.addEventListener("click", (e) => {
+  if (e.target === modal) modal.style.display = "none";
 });

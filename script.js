@@ -58,7 +58,6 @@ modal?.addEventListener("click", (e) => {
   if (e.target === modal) modal.style.display = "none";
 });
 
-const modal = document.getElementById("ticketModal");
 const sendBtn = document.querySelector(".send-btn");
 
 document.getElementById("ticketBtn")?.addEventListener("click", () => {

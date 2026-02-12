@@ -57,3 +57,30 @@ document.getElementById("closeModal")?.addEventListener("click", () => {
 modal?.addEventListener("click", (e) => {
   if (e.target === modal) modal.style.display = "none";
 });
+
+const modal = document.getElementById("ticketModal");
+const sendBtn = document.querySelector(".send-btn");
+
+document.getElementById("ticketBtn")?.addEventListener("click", () => {
+  modal.classList.add("show");
+});
+
+function closeModal() {
+  modal.classList.remove("show");
+}
+
+document.getElementById("closeModal")?.addEventListener("click", closeModal);
+
+modal?.addEventListener("click", (e) => {
+  if (e.target === modal) closeModal();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeModal();
+});
+
+sendBtn?.addEventListener("click", () => {
+  const inputs = modal.querySelectorAll("input, textarea");
+  inputs.forEach(el => el.value = "");
+  closeModal();
+});
